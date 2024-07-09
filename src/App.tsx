@@ -4,8 +4,9 @@ import viteLogo from '/vite.svg'
 import '@mantine/core/styles.css'
 import './App.css'
 import { HeaderMenu } from './components/header/Header'
+import icon from './assets/images/android-chrome-512x512.png'
 
-import { MantineProvider, Button } from '@mantine/core'
+import { MantineProvider, Button, Image, Center } from '@mantine/core'
 
 const maintenance = true
 
@@ -15,7 +16,13 @@ function App() {
   if (maintenance) {
     return (<MantineProvider defaultColorScheme='dark'>{
       <>
-        <div>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <Image
+            src={icon}
+            h={200}
+            w='auto'
+            fit='contain'
+          />
           <h1>Maintenance</h1>
         </div>
       </>
