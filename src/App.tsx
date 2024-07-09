@@ -5,7 +5,7 @@ import '@mantine/core/styles.css'
 import './App.css'
 import { HeaderMenu } from './components/header/Header'
 
-import { MantineProvider, Button, Center } from '@mantine/core'
+import { MantineProvider, Button } from '@mantine/core'
 
 const maintenance = true
 
@@ -16,7 +16,7 @@ function App() {
     return (<MantineProvider defaultColorScheme='dark'>{
       <>
         <div>
-        <h1>Maintenance</h1>
+          <h1>Maintenance</h1>
         </div>
       </>
     }</MantineProvider>)
