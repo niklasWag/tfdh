@@ -6,7 +6,7 @@ import './App.css'
 import { HeaderMenu } from './components/header/Header'
 import icon from './assets/images/android-chrome-512x512.png'
 
-import { MantineProvider, Button, Image, Center } from '@mantine/core'
+import { MantineProvider, Button, Image } from '@mantine/core'
 
 const maintenance = true
 
