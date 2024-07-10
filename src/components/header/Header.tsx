@@ -1,9 +1,10 @@
-import classes from "./Header.module.css"
-import { Container, Group, Burger, Menu, Center } from "@mantine/core"
+import classes from "./Header.module.scss"
+import { Container, Group, Burger, Menu, Center, Image } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { IconChevronDown } from "@tabler/icons-react"
 import { routes } from "../../routes"
 import { Link, useNavigate } from "react-router-dom"
+import logo from "../../assets/images/android-chrome-512x512.png"
 
 export function HeaderMenu() {
     const [opened, { toggle }] = useDisclosure(false, {
@@ -17,7 +18,7 @@ export function HeaderMenu() {
         <header className={classes.header}>
             <Container size="md">
                 <div className={classes.inner}>
-                    <div onClick={() => navigate('/')}>LOGO</div>
+                    <Image className={classes.logo} onClick={() => navigate('/')} src={logo} mah="75%" maw="75%" />
                     <Group gap={5} visibleFrom="sm">{items}</Group>
                     <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
                 </div>

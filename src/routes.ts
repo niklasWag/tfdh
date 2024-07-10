@@ -1,29 +1,63 @@
 export const routes: Route[] = [
     {
-        path: "demo",
-        label: "Demo",
-    },
-    {
-        path: "test2",
-        label: "Test2",
+        path: "world",
+        label: "World",
         links: [
             {
-                path: "test2/subtest",
-                label: "Subtest"
+                path: 'world/kingston',
+                label: 'Kingston'
+            },
+            {
+                path: 'world/sterileLand',
+                label: 'Sterile Land'
+            },
+            {
+                path: 'world/vespers',
+                label: 'Vespers'
+            },
+            {
+                path: 'world/echoSwamp',
+                label: 'Echo Swamp'
+            },
+            {
+                path: 'world/agnaDesert',
+                label: 'Agna Desert'
+            },
+            {
+                path: 'world/whitenightGulch',
+                label: 'White-night Gulch'
+            },
+            {
+                path: 'world/hegios',
+                label: 'Hegios'
+            },
+            {
+                path: 'world/fortress',
+                label: 'Fortress'
             }
         ]
     },
     {
-        path: "test3",
-        label: "Test3",
+        path: "descendants",
+        label: "Descendants",
         links: [
             {
-                path: "test3/subtest",
-                label: "Subtest"
+                path: 'descendants/lepic',
+                label: 'Lepic'
             },
             {
-                path: "test3/subtest2",
-                label: "Subtest2"
+                path: 'descendants/ajax',
+                label: 'Ajax'
+            }
+        ]
+    },
+    {
+        path: "farming",
+        label: "Farming",
+        links: [
+            {
+                path: 'farming/voidFragments',
+                label: 'Void Fragments'
             }
         ]
     }
