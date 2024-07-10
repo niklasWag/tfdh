@@ -1,6 +1,6 @@
 import { Badge, Table } from "@mantine/core";
 import { voidFragments } from "../../assets/data/voidFragments";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function VoidFragments() {
 

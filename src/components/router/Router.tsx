@@ -1,4 +1,4 @@
-import { Route, Routes, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { NotFound } from "../notFound/NotFound";
 import { Home } from "../../pages/home/Home";
 import { Demo } from "../../pages/demo/Demo";

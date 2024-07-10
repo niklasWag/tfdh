@@ -1,5 +1,3 @@
-import { ColorSwatchCssVariables } from "@mantine/core";
-
 export class Element {
     static readonly NONATTRIBUTE: Element = new Element("Non-Attribute", 'grey', '--mantine-color-gray-3', '--mantine-color-gray-7');
     static readonly ELECTRIC: Element = new Element("Electric", 'violet', '--mantine-color-violet-3', '--mantine-color-violet-7');
