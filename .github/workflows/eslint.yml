@@ -32,12 +32,8 @@ jobs:
 
       - name: Install ESLint
         run: |
-          npm install eslint
+          npm install
           npm install @microsoft/eslint-formatter-sarif
-          npm install @typescript-eslint/eslint-plugin
-          npm install @typescript-eslint/parser
-          npm install eslint-plugin-react-hooks
-          npm install eslint-plugin-react-refresh
 
       - name: Run ESLint
         run: npx eslint .
