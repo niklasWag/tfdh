@@ -35,7 +35,7 @@ jobs:
           npm install
 
       - name: Run ESLint
-        run: npx eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --no-fix --format json --output eslint_report.json
+        run: npx eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --no-fix --format json --output-file eslint_report.json
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
