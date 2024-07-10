@@ -1,16 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { HeaderMenu } from './components/header/Header'
 import icon from './assets/images/android-chrome-512x512.png'
 
-import { Button, Image } from '@mantine/core'
+import { Image } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
+import { Router } from './components/router/Router'
 
 const maintenance = true
 
 function App() {
-  const [count, setCount] = useState(0)
 
   if (maintenance) {
     return (
@@ -32,35 +30,10 @@ function App() {
     <>
       <div className='container'>
         <HeaderMenu />
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <Button onClick={() => alert()}>TEST</Button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
+        <Router />
       </div>
     </>
   )
 }
 
 export default App
-
-
-function alert() {
-  window.alert('Hello, world!')
-}
