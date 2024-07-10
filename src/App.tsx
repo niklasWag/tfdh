@@ -4,6 +4,7 @@ import icon from './assets/images/android-chrome-512x512.png'
 
 import { Image } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
+import { Demo } from './pages/demo/Demo'
 import { Router } from './components/router/Router'
 
 const maintenance = true
