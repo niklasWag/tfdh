@@ -5,7 +5,7 @@ import icon from './assets/images/android-chrome-512x512.png'
 import { Image } from '@mantine/core'
 import { Router } from './components/router/Router'
 
-const maintenance = true
+const maintenance = false
 
 function App() {
 
