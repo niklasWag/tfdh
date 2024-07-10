@@ -4,30 +4,47 @@ export class Element {
     static readonly FIRE: Element = new Element("Fire", 'red', '--mantine-color-red-3', '--mantine-color-red-7');
     static readonly CHILL: Element = new Element("Chill", 'blue', '--mantine-color-blue-3', '--mantine-color-blue-7');
     static readonly TOXIC: Element = new Element("Toxic", 'lime', '--mantine-color-lime-3', '--mantine-color-lime-7');
+    static readonly allElements: Element[] = []
 
-    private constructor(private readonly _name: string, private readonly _color: string, private readonly _colorLight: string, private readonly _colorDark: string, private _weakAgainst?: Element) { }
+    private constructor(private readonly _name: string, private readonly _color: string, private readonly _colorLight: string, private readonly _colorDark: string, private resistances?: Resistances) { }
 
     static initialize() {
-        this.ELECTRIC._weakAgainst = this.TOXIC;
-        this.FIRE._weakAgainst = this.CHILL;
-        this.CHILL._weakAgainst = this.FIRE;
-        this.TOXIC._weakAgainst = this.ELECTRIC;
+        Element.ELECTRIC.resistances = {
+            veryStrong: [Element.ELECTRIC],
+            strong: [Element.FIRE],
+            normal: [Element.CHILL],
+            veryWeak: [Element.TOXIC]
+        }
+        Element.FIRE.resistances = {
+            veryStrong: [Element.FIRE],
+            strong: [Element.ELECTRIC],
+            normal: [Element.TOXIC],
+            veryWeak: [Element.CHILL]
+        }
+        Element.CHILL.resistances = {
+            veryStrong: [Element.CHILL],
+            strong: [Element.TOXIC],
+            normal: [Element.ELECTRIC],
+            veryWeak: [Element.FIRE]
+        }
+        Element.TOXIC.resistances = {
+            veryStrong: [Element.TOXIC],
+            strong: [Element.CHILL],
+            normal: [Element.FIRE],
+            veryWeak: [Element.ELECTRIC]
+        }
+
+        this.allElements.push(
+            Element.NONATTRIBUTE,
+            Element.CHILL,
+            Element.FIRE,
+            Element.ELECTRIC,
+            Element.TOXIC
+        )
     }
 
     get name() {
         return this._name;
-    }
-
-    isWeakAgainst(element: Element): boolean {
-        return this._weakAgainst === element;
-    }
-
-    isStrongAgainst(element: Element): boolean {
-        return element._weakAgainst === this;
-    }
-
-    get weakAgainst(): Element | undefined {
-        return this._weakAgainst
     }
 
     get colorLight(): string {
@@ -41,9 +58,32 @@ export class Element {
     get color(): string {
         return this._color;
     }
+
+    hasResistanceAgainst(): Element[] {
+        return this.resistances?.veryStrong.concat(this.resistances?.strong) || []
+    }
+
+    doesStrongDamageAgainst(): Element[] {
+        const weakElements: Element[] = []
+        Element.allElements.forEach(element => {
+            const resistances = element.resistances
+            if (resistances && resistances.veryWeak.includes(this)) weakElements.push(element)
+        })
+
+        return weakElements
+    }
+
+
 }
 // Initialize the relationships after all elements have been defined
 Element.initialize();
+
+type Resistances = {
+    veryStrong: Element[]
+    strong: Element[]
+    normal: Element[]
+    veryWeak: Element[]
+}
 
 export class WeaponTypes {
     static readonly SubmachineGun: WeaponTypes = new WeaponTypes("Submachine Gun", "Basic")

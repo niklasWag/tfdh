@@ -1,5 +1,15 @@
 export const routes: Route[] = [
     {
+        path: "info",
+        label: "Info",
+        links: [
+            {
+                path: "info/combat",
+                label: "Combat"
+            }
+        ]
+    },
+    {
         path: "world",
         label: "World",
         links: [

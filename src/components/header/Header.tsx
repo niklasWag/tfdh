@@ -18,7 +18,7 @@ export function HeaderMenu() {
         <header className={classes.header}>
             <Container size="md">
                 <div className={classes.inner}>
-                    <Image className={classes.logo} onClick={() => navigate('/')} src={logo} mah="75%" maw="75%" />
+                    <Image className={classes.logo} onClick={() => navigate('/')} src={logo} mah="75%" maw="75%" mih='50px' miw='50px' />
                     <Group gap={5} visibleFrom="sm">{items}</Group>
                     <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
                 </div>
