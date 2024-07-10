@@ -3,7 +3,6 @@ import { HeaderMenu } from './components/header/Header'
 import icon from './assets/images/android-chrome-512x512.png'
 
 import { Image } from '@mantine/core'
-import { useNavigate } from 'react-router-dom'
 import { Router } from './components/router/Router'
 
 const maintenance = true
