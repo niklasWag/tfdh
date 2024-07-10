@@ -72,4 +72,20 @@ export class Zone {
     get name(): string {
         return this._name;
     }
+
+    get zoneNumber(): number {
+        return this._zoneNumber;
+    }
+
+    get numberAreas(): number {
+        return this._numberAreas;
+    }
+
+    get minLevel(): number {
+        return this._minLevel;
+    }
+
+    get maxLevel(): number {
+        return this._maxLevel;
+    }
 }
