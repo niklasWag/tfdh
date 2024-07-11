@@ -4,6 +4,7 @@ export class Element {
     static readonly FIRE: Element = new Element("Fire", 'red', '--mantine-color-red-3', '--mantine-color-red-7');
     static readonly CHILL: Element = new Element("Chill", 'blue', '--mantine-color-blue-3', '--mantine-color-blue-7');
     static readonly TOXIC: Element = new Element("Toxic", 'lime', '--mantine-color-lime-3', '--mantine-color-lime-7');
+    static readonly UNKNOWN: Element = new Element("unknown", 'white', '--mantine-color-white-3', '--mantine-color-white-7')
     static readonly allElements: Element[] = []
 
     private constructor(private readonly _name: string, private readonly _color: string, private readonly _colorLight: string, private readonly _colorDark: string, private resistances?: Resistances) { }
@@ -106,6 +107,8 @@ export class Zone {
     static readonly KINGSTON: Zone = new Zone("kingston", "Kingston", 1, 3, 1, 10)
     static readonly STERILE_LAND: Zone = new Zone("sterileLand", "Sterile Land", 2, 3, 10, 22)
     static readonly VESPERS: Zone = new Zone("vespers", "Vespers", 3, 3, 22, 35)
+    static readonly HAGIOS: Zone = new Zone("hagios", "Hagios", 7, 5, 0, 82)
+    static readonly FORTRESS: Zone = new Zone("fortress", "Fortress", 8, 5, 83, 100)
 
     private constructor(readonly key: string, private readonly _name: string, private readonly _zoneNumber: number, private readonly _numberAreas: number, private readonly _minLevel: number, private readonly _maxLevel: number) { }
 
@@ -128,4 +131,46 @@ export class Zone {
     get maxLevel(): number {
         return this._maxLevel;
     }
+}
+
+export class Boss {
+
+    constructor(private readonly _name: string, private readonly _zone: Zone, private readonly _area: string, private readonly _mission: string, private readonly _damageElement: Element, private readonly _weakness: Element) {}
+
+    get name(): string {
+        return this._name
+    }
+
+    get zone(): Zone {
+        return this._zone
+    }
+
+    get area(): string {
+        return this._area
+    }
+
+    get mission(): string {
+        return this._mission
+    }
+
+    get damageElement(): Element {
+        return this._damageElement
+    }
+
+    get weakness(): Element {
+        return this._weakness
+    }
+
+}
+
+export const bossList = new Map<string, Boss>([
+    ['BOSSNAMEIFORGOT', new Boss('', Zone.HAGIOS, '', '', Element.ELECTRIC, Element.TOXIC)],
+    ['GOROTH', new Boss('Goroth the Cold-Blooded Vanguard', Zone.FORTRESS, '', '', Element.UNKNOWN, Element.CHILL)]
+])
+
+export function getBossByMission(mission: string): Boss | null {
+    bossList.forEach(boss => {
+        if (boss.mission === mission) return boss
+    })
+    throw Error(`No boss found for mission: ${mission}`)
 }
