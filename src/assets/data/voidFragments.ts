@@ -112,8 +112,84 @@ export const voidFragments: VoidFragment[] = [
             organic: 1,
             solenoid: 270
         }
-    }
+    },
     // Echo Swamp
+    {
+        zone: Zone.ECHOSWAMP,
+        area: 'Abandoned Zone',
+        type: Element.TOXIC,
+        loot: {
+            monomer: 0,
+            polymer: 1,
+            inorganic: 4,
+            organic: 0,
+            solenoid: 330
+        }
+    },
+    {
+        zone: Zone.ECHOSWAMP,
+        area: 'Derelict Covert',
+        type: Element.TOXIC,
+        loot: {
+            monomer: 0,
+            polymer: 0,
+            inorganic: 4,
+            organic: 1,
+            solenoid: 330
+        }
+    },
+    {
+        zone: Zone.ECHOSWAMP,
+        area: 'Muskeg Swamp',
+        type: Element.FIRE,
+        loot: {
+            monomer: 1,
+            polymer: 0,
+            inorganic: 0,
+            organic: 4,
+            solenoid: 330
+        }
+    },
+    // Agna Desert
+    {
+        zone: Zone.AGNADESERT,
+        area: 'Vermilion Waste',
+        type: Element.ELECTRIC,
+        loot: {
+            monomer: 0,
+            polymer: 0,
+            inorganic: 1,
+            organic: 4,
+            solenoid: 390
+        }
+    },
+    {
+        zone: Zone.AGNADESERT,
+        area: 'The Storage',
+        type: Element.FIRE,
+        loot: {
+            monomer: 1,
+            polymer: 0,
+            inorganic: 0,
+            organic: 4,
+            solenoid: 390
+        }
+    },
+    {
+        zone: Zone.AGNADESERT,
+        area: 'Miragestone',
+        type: Element.NONATTRIBUTE,
+        loot: {
+            monomer: 1,
+            polymer: 1,
+            inorganic: 1,
+            organic: 1,
+            solenoid: 390
+        }
+    },
+    // White-night Gulch
+     // Hagios
+    // Fortress
 ]
 
 type VoidFragment = {

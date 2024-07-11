@@ -11,7 +11,7 @@ export function Combat() {
                     <Table.Tr>
                         <Table.Th>Element</Table.Th>
                         <Table.Th>Resistant against</Table.Th>
-                        <Table.Th>Strong against</Table.Th>
+                        <Table.Th>Weak against</Table.Th>
                     </Table.Tr>
                 </Table.Thead>
                 <Table.Tbody>{getTableRows()}</Table.Tbody>
@@ -25,7 +25,7 @@ function getTableRows() {
         <Table.Tr key={element.name}>
             <Table.Td><Badge color={element.color}>{element.name}</Badge></Table.Td>
             <Table.Td>{createElementList(element.hasResistanceAgainst())}</Table.Td>
-            <Table.Td>{createElementList(element.doesStrongDamageAgainst())}</Table.Td>
+            <Table.Td>{createElementList(element.isWeakAgainst())}</Table.Td>
         </Table.Tr>
     ))
 

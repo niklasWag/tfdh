@@ -74,6 +74,10 @@ export class Element {
         return weakElements
     }
 
+    isWeakAgainst(): Element[] {
+        return this.resistances?.veryWeak || []
+    }
+
 
 }
 // Initialize the relationships after all elements have been defined
@@ -107,6 +111,9 @@ export class Zone {
     static readonly KINGSTON: Zone = new Zone("kingston", "Kingston", 1, 3, 1, 10)
     static readonly STERILE_LAND: Zone = new Zone("sterileLand", "Sterile Land", 2, 3, 10, 22)
     static readonly VESPERS: Zone = new Zone("vespers", "Vespers", 3, 3, 22, 35)
+    static readonly ECHOSWAMP: Zone = new Zone("echoSwamp", "Echo Swamp", 4, 3, 35, 48)
+    static readonly AGNADESERT: Zone = new Zone("agnaDesert", "Agna Desert", 5, 3, 48, 61)
+    static readonly WHITENIGHTGULCH: Zone = new Zone("whiteNightGulch", "White-night Gulch", 6, 3, 61, 74)
     static readonly HAGIOS: Zone = new Zone("hagios", "Hagios", 7, 5, 0, 82)
     static readonly FORTRESS: Zone = new Zone("fortress", "Fortress", 8, 5, 83, 100)
 
@@ -130,6 +137,19 @@ export class Zone {
 
     get maxLevel(): number {
         return this._maxLevel;
+    }
+}
+
+export class Area {
+
+    constructor(private readonly _name: string, private readonly _zone: Zone) {}
+
+    get name(): string {
+        return this._name
+    }
+
+    get zone(): Zone {
+        return this._zone
     }
 }
 
@@ -173,4 +193,38 @@ export function getBossByMission(mission: string): Boss | null {
         if (boss.mission === mission) return boss
     })
     throw Error(`No boss found for mission: ${mission}`)
+}
+
+export class Descendant {
+
+    constructor(private readonly _name: string, private readonly _element: Element, private readonly _skills: SkillSet) {}
+
+    get name(): string {
+        return this._name
+    }
+
+    get element(): Element {
+        return this._element
+    }
+
+    get skills(): SkillSet {
+        return this._skills
+    }
+}
+
+type Skill = {
+    name: string
+    description: string
+    element: Element
+    secondaryElement: string
+    type: 'AOE' | 'Single Target' | 'Heal' | 'Buff' | 'Debuff'
+    manaCost: number
+}
+
+type SkillSet = {
+    skill1: Skill
+    skill2: Skill
+    skill3: Skill
+    ultimate: Skill
+    passive: Skill
 }
